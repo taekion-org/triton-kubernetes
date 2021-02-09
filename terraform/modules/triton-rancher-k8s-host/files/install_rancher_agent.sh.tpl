@@ -30,5 +30,5 @@ if [ "${rancher_registry_username}" != "" ]; then
 fi
 
 # Run Rancher agent container
-#echo "sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run ${rancher_agent_image} --server ${rancher_api_url} --token ${rancher_cluster_registration_token} --ca-checksum ${rancher_cluster_ca_checksum} --${rancher_node_role}" > /home/ubuntu/rancher_init_cmd
-sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run ${rancher_agent_image} --server ${rancher_api_url} --token ${rancher_cluster_registration_token} --ca-checksum ${rancher_cluster_ca_checksum} --${rancher_node_role} --address net0 --address-internal net1
+#echo "sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run ${rancher_agent_image} --server ${rancher_api_url} --token ${rancher_cluster_registration_token} --ca-checksum ${rancher_cluster_ca_checksum} --${rancher_node_role} --address net0 --address-internal net1 --node-name=$(hostname-s).pa.dcntral.net" > /home/ubuntu/rancher_init_cmd
+sudo docker run -d --privileged --restart=unless-stopped --net=host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run ${rancher_agent_image} --server ${rancher_api_url} --token ${rancher_cluster_registration_token} --ca-checksum ${rancher_cluster_ca_checksum} --${rancher_node_role} --address net0 --address-internal net1 --node-name=$(hostname-s).pa.dcntral.net
